@@ -54,7 +54,7 @@ func getCalibrationValue(text string) int {
 				continue
 			}
 
-			if text[i:i+dnLength-1] == digitName {
+			if text[i:i+dnLength] == digitName {
 				assignToCorrectVariable(digitNames[digitName])
 			}
 		}
