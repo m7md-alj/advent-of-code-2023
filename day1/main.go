@@ -32,6 +32,7 @@ func getCalibrationValue(text string) int {
 	// ? means unassigned
 	leftMost, rightMost := '?', '?'
 
+	// Funny closure
 	assignToCorrectVariable := func(char rune) {
 		if leftMost == '?' {
 			leftMost, rightMost = char, char
@@ -46,6 +47,8 @@ func getCalibrationValue(text string) int {
 			continue
 		}
 
+		// Check if it's at the start of a digit name
+		// And if it is assign it to the correct variable (leftMost, rightMost)
 		for digitName := range digitNames {
 			dnLength := len(digitName)
 
