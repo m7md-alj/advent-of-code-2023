@@ -47,18 +47,14 @@ func getCalibrationValue(text string) int {
 		}
 
 		for digitName := range digitNames {
-			if len(text[i:]) < len(digitName) {
+			dnLength := len(digitName)
+
+			// Check if there is enough space for iteration
+			if len(text[i:]) < dnLength {
 				continue
 			}
 
-			found := true
-			for j := range digitName {
-				if text[i+j] != digitName[j] {
-					found = false
-					break
-				}
-			}
-			if found {
+			if text[i:i+dnLength-1] == digitName {
 				assignToCorrectVariable(digitNames[digitName])
 			}
 		}
